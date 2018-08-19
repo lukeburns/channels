@@ -1,12 +1,18 @@
 # channels
 
-derive keys from keys
+**experimental:** derive keys from keys. built on [redschnorr](https://github.com/lukeburns/redschnorr) for [hypercore-red](https://github.com/lukeburns/hypercore-red).
+
+[hypercore](https://github.com/mafintosh/hypercore) is a secure, distributed append-only log that can be replicated on p2p networks.
+
+this library is a proof of concept meant to demonstrate the viability of deterministically generating namespaced subfeeds associated with a given feed, which is possible because hypercore feeds are identified by public keys.
+
+this library works with an experimental and incompatible [fork](https://github.com/lukeburns/hypercore-red) of an implementation of [hypercore in rust](https://github.com/datrs/hypercore) that is still under development. it is [insecure](https://github.com/lukeburns/redschnorr), so don't use it.
 
 ## examples
 
 #### public channels
 
-```rs
+```rust
 // generate Alice's keypair { public, secret }
 let alice = generate_keypair();
 let channel = b"cats";
@@ -23,7 +29,7 @@ println!("{:?}", pub_cats_public_key == cats_public_key);
 
 #### shared secret channels
 
-```rs
+```rust
 // generate Alice and Bob's keypairs { public, secret } and derive their shared secret
 let alice = generate_keypair();
 let bob = generate_keypair();

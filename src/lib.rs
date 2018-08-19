@@ -50,12 +50,6 @@ pub fn derive_channel_public<D>(public: &PublicKey, bytes: &[u8]) -> Result<Publ
 
 pub fn derive_relationship_keys<D>(secret: &SecretKey, public: &PublicKey) -> Result<RelationshipKeys, Error>
         where D: Digest<OutputSize = U64> + Default {
-    let sk = Scalar::from_bytes_mod_order(*secret.as_bytes());
-    let pk = match CompressedRistretto(public.to_bytes()).decompress() {
-        Some(x) => x,
-        None    => bail!("Point decompression error"),
-    };
-
     let bytes = match derive_shared_secret(secret, public) {
         Ok(x) => x.to_bytes(),
         Err(e) => bail!(e)
