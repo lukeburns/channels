@@ -1,6 +1,6 @@
 # channels
 
-**experimental:** derive keys from keys. built on [redschnorr](https://github.com/lukeburns/redschnorr) for [hypercore-red](https://github.com/lukeburns/hypercore-red).
+**experimental:** derive keys from keys. built on [redschnorr](https://github.com/lukeburns/redschnorr) for [hypercore-red](https://github.com/lukeburns/hypercore-red/tree/experiment).
 
 [hypercore](https://github.com/mafintosh/hypercore) is a secure, distributed append-only log that can be replicated on p2p networks.
 
